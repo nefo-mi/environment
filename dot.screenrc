@@ -1,0 +1,36 @@
+startup_message off
+autodetach on
+defscrollback 10000
+escape ^z^z
+vbell off
+vbell_msg "EDF! EDF!"
+caption always "%{= wb} %-w%{=bu dr}%n %t%{-}%+w" 
+hardstatus alwayslastline "%= %{=rk w}%y/%m/%d %c"
+defhstatus "^En:^Et"
+#defencoding SJIS
+shell /usr/bin/zsh
+
+bind b prev
+bind s split
+bind j focus down
+bind k focus up
+bind o focus down
+bind h focus top
+bind q remove
+bind S eval "encoding sjis"
+bind U eval "encoding utf8"
+
+bind r eval 'echo "Resize window"' 'command -c resize'
+bind -c resize ^]  command
+bind -c resize k eval 'resize +1' 'command -c resize'
+bind -c resize j eval 'resize -1' 'command -c resize'
+bind -c resize = eval 'resize =' 'command -c resize'
+
+screen 0
+split
+split -v
+focus down
+screen 1
+focus down
+screen 2
+resize +3

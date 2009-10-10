@@ -1,0 +1,26 @@
+#!/bin/bash
+
+export LANG=ja_JP.UTF-8
+
+if [ $# -eq 0 ]; then
+     FILES=`ls dot.*`
+else
+     FILES=$@
+fi
+
+for FILE in $FILES
+  do
+  if [ -f ./${FILE} ] ; then
+    if [ -f ~/${FILE##'dot'} ] ; then
+      echo "rename ~/${FILE##'dot'} to ~/${FILE##'dot'}.orig"
+      mv ~/${FILE##'dot'} ~/${FILE##'dot'}.orig
+    fi
+
+    echo 'copy ' $FILE 'to' ${FILE##'dot'}
+    ln -s $PLACE/$FILE ~/${FILE##'dot'}
+  else
+    echo 'no such file "'${FILE}'"'
+  fi
+done
+
+exit 0
