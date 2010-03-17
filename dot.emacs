@@ -9,6 +9,8 @@
 (set-keyboard-coding-system 'utf-8)
 (set-buffer-file-coding-system 'utf-8-unix)
 
+(add-to-list 'load-path "/home/neho/.emacs.d/site-lisp")
+
 (setq inhibit-startup-message t)
 (setq indent-tabs-mode nil)
 (show-paren-mode t)
