@@ -25,4 +25,8 @@ for FILE in $FILES
   fi
 done
 
+echo "copying .vim directory...."
+ln -s $PLACE/.vim ~/.vim
+
+echo "Congratulations! copy successful."
 exit 0
